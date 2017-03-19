@@ -1,0 +1,34 @@
+{
+  "kind": "ReplicationController",
+  "apiVersion": "v1",
+  "metadata": {
+    "name": "hello",
+    "labels": {
+      "name": "hello"
+    }
+  },
+  "spec": {
+    "replicas": 3,
+    "template": {
+      "metadata": {
+        "labels": {
+          "name": "hello"
+        }
+      },
+      "spec": {
+        "containers": [
+          {
+            "name": "hello",
+            "image": "hello:v2",
+            "ports": [
+              {
+                "name": "http-server",
+                "containerPort": 8080
+              }
+            ]
+          }
+        ]
+      }
+    }
+  }
+}
